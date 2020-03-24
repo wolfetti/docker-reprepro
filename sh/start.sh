@@ -28,11 +28,6 @@ if [ ! -L /repo/cron/cron.monthly ]; then
   ln -s /etc/cron.monthly /repo/cron/
 fi
 
-# Adding sshd_config symlink
-if [ ! -L /repo/conf/sshd_config) ]; then
-  ln -s /etc/ssh/sshd_config /repo/conf/
-fi
-
 # Fixing bin permissions
 chmod 700 /repo/bin/*
 
