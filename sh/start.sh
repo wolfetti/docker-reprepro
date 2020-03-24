@@ -3,12 +3,10 @@ set -e
 
 echo "Preparing runtime...."
 
-# Adding public site /dists symlink if not exists
+# Adding public folders to site
 if [ ! -L /repo/public/dists ]; then
   ln -s /repo/dists /repo/public/
 fi
-
-# Adding public site /pool symlink if not exists
 if [ ! -L /repo/public/pool ]; then
   ln -s /repo/pool /repo/public/
 fi
@@ -30,9 +28,9 @@ if [ ! -L /repo/cron/cron.monthly ]; then
   ln -s /etc/cron.monthly /repo/cron/
 fi
 
-# Adding update cronjob to cron.daily
-if [ ! -L /repo/cron/cron.daily/repo-update-mirrors ]; then
-  ln -s /repo/bin/repo-update-mirrors /etc/cron.daily/
+# Adding sshd_config symlink
+if [ ! -L /repo/conf/sshd_config) ]; then
+  ln -s /etc/ssh/sshd_config /repo/conf/
 fi
 
 # Fixing bin permissions
