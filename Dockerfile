@@ -26,7 +26,6 @@ ADD ./sh/start.sh /
 RUN \
   # Scripts
   chmod +x /start.sh \
-  && chmod +x /repo/bin/* \
   && echo "export PATH=/repo/bin:${PATH}" >> /root/.bashrc \
   # Services
   && chmod +x /services/cron/* \
@@ -36,9 +35,10 @@ RUN \
   && rm /etc/nginx/sites-available/default \
   && ln -s /repo/conf/nginx_site /etc/nginx/sites-available/default \
   && ln -s /repo/ssh /root/.ssh \
-  && ln -s /repo/gnupg /root/.gnupg 
+  && ln -s /repo/gnupg /root/.gnupg
 
 # Start
 ENV PATH "/repo/bin:${PATH}"
 EXPOSE 22 80
 ENTRYPOINT ["/start.sh"]
+CMD []
