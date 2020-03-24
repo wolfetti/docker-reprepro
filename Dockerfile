@@ -20,7 +20,6 @@ VOLUME /repo
 ## Copy configurations and scripts
 COPY ./repo /repo
 COPY ./services /services
-ADD ./etc/ssh /etc/ssh/
 ADD ./sh/start.sh /
 
 ## Finishing installation
@@ -33,14 +32,11 @@ RUN \
   && chmod +x /services/cron/* \
   && chmod +x /services/nginx/* \
   && chmod +x /services/sshd/* \
-  # SSH
-  && chmod 600 /etc/ssh/*_key \
   # Symlinks
   && rm /etc/nginx/sites-available/default \
   && ln -s /repo/conf/nginx_site /etc/nginx/sites-available/default \
   && ln -s /repo/ssh /root/.ssh \
-  && ln -s /repo/gnupg /root/.gnupg \
-  && chmod 600 /repo/gnupg
+  && ln -s /repo/gnupg /root/.gnupg 
 
 # Start
 ENV PATH "/repo/bin:${PATH}"
