@@ -13,4 +13,4 @@ docker run -d --name wolfetti-reprepro-dev \
   -p 34022:22 \
   -p 34080:80 \
   -v wolfetti-reprepro-dev_data:/repo \
-  wolfetti/docker-reprepro
+  wolfetti/reprepro

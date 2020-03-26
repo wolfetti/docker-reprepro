@@ -1,2 +1,2 @@
 #/bin/sh
-docker build . -t wolfetti/docker-reprepro
+docker build . -t wolfetti/reprepro
