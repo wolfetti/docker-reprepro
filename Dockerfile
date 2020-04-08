@@ -18,7 +18,7 @@ RUN \
 VOLUME /repo
 
 ## Copy configurations and scripts
-COPY ./repo /repo
+COPY ./repo /tpl-repo
 COPY ./services /services
 ADD ./sh/start.sh /
 

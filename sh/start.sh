@@ -4,6 +4,24 @@ set -e
 echo "Preparing runtime...."
 
 # =============================
+# Installing template files
+# =============================
+if [ ! -d /repo/dists ]; then
+  cp -a /tpl-repo/* /repo/
+  chown -R root:root /repo
+  chmod 700 /repo/bin/*
+  chmod 700 /repo/gnupg
+
+  ln -s /etc/crontab /repo/cron/
+  ln -s /etc/cron.hourly /repo/cron/
+  ln -s /etc/cron.daily /repo/cron/
+  ln -s /etc/cron.weekly /repo/cron/
+  ln -s /etc/cron.monthly /repo/cron/
+
+  ln -s /repo/bin/repo-update-mirrors /repo/cron/cron.daily/
+fi
+
+# =============================
 # Adding public folders to site
 # =============================
 if [ ! -L /repo/public/dists ]; then
