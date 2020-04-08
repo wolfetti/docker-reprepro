@@ -6,7 +6,7 @@ echo "Preparing runtime...."
 # =============================
 # Installing template files
 # =============================
-if [ ! -d /repo/dists ]; then
+if [ ! -d /repo/conf ]; then
   cp -a /tpl-repo/* /repo/
   chown -R root:root /repo
   chmod 700 /repo/bin/*
@@ -30,30 +30,6 @@ fi
 
 if [ ! -L /repo/public/pool ]; then
   ln -s /repo/pool /repo/public/
-fi
-# =============================
-
-# =============================
-# Adding cron symlinks
-# =============================
-if [ ! -L /repo/cron/crontab ]; then
-  ln -s /etc/crontab /repo/cron/
-fi
-
-if [ ! -L /repo/cron/cron.hourly ]; then
-  ln -s /etc/cron.hourly /repo/cron/
-fi
-
-if [ ! -L /repo/cron/cron.daily ]; then
-  ln -s /etc/cron.daily /repo/cron/
-fi
-
-if [ ! -L /repo/cron/cron.weekly ]; then
-  ln -s /etc/cron.weekly /repo/cron/
-fi
-
-if [ ! -L /repo/cron/cron.monthly ]; then
-  ln -s /etc/cron.monthly /repo/cron/
 fi
 # =============================
 
