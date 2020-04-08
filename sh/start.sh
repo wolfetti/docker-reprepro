@@ -8,9 +8,6 @@ echo "Preparing runtime...."
 # =============================
 if [ ! -d /repo/conf ]; then
   cp -a /tpl-repo/* /repo/
-  chown -R root:root /repo
-  chmod 700 /repo/bin/*
-  chmod 700 /repo/gnupg
 
   ln -s /etc/crontab /repo/cron/
   ln -s /etc/cron.hourly /repo/cron/
@@ -36,6 +33,9 @@ fi
 # =============================
 # Fixing permissions
 # =============================
+
+# Main folder
+chown -R root:root /repo
 
 # Bin
 chmod 700 /repo/bin/*
@@ -65,6 +65,11 @@ fi
 chmod 600 /repo/ssh/*key
 chmod 644 /repo/ssh/*.pub
 chmod 600 /repo/ssh/authorized_keys
+
+# Public site
+chmod 755 /repo/public
+find /repo/public -type d -exec chmod 755 {} \;
+find /repo/public -type f -exec chmod 644 {} \;
 
 # READMEs
 for d in $(/bin/ls /repo); do
