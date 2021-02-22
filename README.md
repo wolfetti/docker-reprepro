@@ -1,4 +1,4 @@
-# wolfetti/docker-reprepro
+# Reprepro Docker Container
 
 This container is a fully working installation of reprepro (and accessory packages) that allows you to create a repository for your debian packages in 5 minutes with a minimal configuration.
 It is completely customizable and allows you to use as many repositories as you want within the same container with the appropriate configuration.
