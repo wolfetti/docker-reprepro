@@ -35,7 +35,7 @@ Each folder contains within it a README.txt file that explains the contents and 
 - After you have done this first 2 steps, you are ready to initialize repository.
 	Start the container:
 
-		docker run -d -p 2022:22 -p 8080:80 -v reprepro_data:/repo wolfetti/docker-reprepro
+		docker run -d -p 2022:22 -p 8080:80 -v reprepro_data:/repo wolfetti/reprepro
 
 	Install (as root user) your SSH public key.
 
